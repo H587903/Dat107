@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
+	<persistence-unit name="Oblig3PersistenceUnit" transaction-type="RESOURCE_LOCAL">
+	
+	<!-- Sti for Klasser brukt i prosjekt -->
+		<class>oblig3.Ansatt</class>
+		<class>oblig3.AnsattDAO</class>
+		<class>oblig3.Avdeling</class>
+		<class>oblig3.AvdelingDAO</class>
+		
+		<properties>
+		    <!--  Generelle JPA properties -->
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://data1.hib.no:5434/h587903" /> 	<!-- Server:port/Database -->
+			<property name="javax.persistence.jdbc.user" value="h587903" />										<!-- Brukernavn -->
+			<property name="javax.persistence.jdbc.password" value="Ape123" />									<!-- Passord -->
+			
+			<!--  EclipseLink properties -->
+            <!--  Se https://wiki.eclipse.org/EclipseLink/Examples/JPA/Logging -->
+            <property name="eclipselink.logging.level" value="WARNING"/>
+		</properties>
+		
+	</persistence-unit>
+</persistence> 
