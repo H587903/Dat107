@@ -1,46 +1,36 @@
 package oblig3;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedNativeQueries;
-import javax.persistence.NamedNativeQuery;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(schema = "oblig3")
-@NamedQuery(name = "hentAlleAvdelinger", query ="SELECT avd FROM Avdeling avd")
-
-//@NamedNativeQueries({
-//	@NamedNativeQuery(
-//			name = "hentsjef", 
-//			query = "select Ansatt.* from Avdeling inner join Ansatt on Ansatt.aid = Avdeling.sjefid where Avdeling.avid = ?",
-//			resultClass = Avdeling.class
-//			)
-//})
-
+@NamedQuery(name = "hentAlleAvdelinger", query = "SELECT avd FROM Avdeling avd")
 public class Avdeling {
+
 	@Id
-//	@ManyToOne
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int avid;
 	private String navn;
 	private int sjefid;
-	
+
 	public Avdeling() {
-		
+
 	}
-	
-	public Avdeling(int avid, String navn, int sjefid) {
-		this.avid = avid;
+
+	public Avdeling(String navn, int sjefid) {
 		this.navn = navn;
 		this.sjefid = sjefid;
 	}
-	
+
 	public int getAvid() {
 		return avid;
 	}
-	
+
 	public void setAvid(int avid) {
 		this.avid = avid;
 	}
@@ -65,6 +55,5 @@ public class Avdeling {
 	public String toString() {
 		return "Avdeling " + avid + ", navn = " + navn + ", sjefid = " + sjefid;
 	}
-	
-	
+
 }

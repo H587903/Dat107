@@ -98,10 +98,4 @@ public class AnsattDAO {
 
 		return true;
 	}
-
-	public int finnNesteId() {
-		List<Ansatt> a = hentAnsattListe();
-		int id = a.get(a.size() - 1).getAid();
-		return id + 1;
-	}
 }
